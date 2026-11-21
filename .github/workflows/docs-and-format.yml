@@ -1,3 +1,8 @@
+# Optimized by ci-cost (https://github.com/mariotavarez/ci-cost)
+# Applied 1 optimization:
+# - [MEDIUM] Add concurrency group to "docs-and-format.yml"
+# Estimated savings: ~2 min/run
+#
 name: Documentation And Code Formatting
 
 on:
@@ -8,6 +13,10 @@ on:
       - dev
   pull_request:
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
   # Optional: allow read access to pull request. Use with `only-new-issues` option.
