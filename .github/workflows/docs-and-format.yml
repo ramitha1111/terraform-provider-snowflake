@@ -1,6 +1,7 @@
 name: Documentation And Code Formatting
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
